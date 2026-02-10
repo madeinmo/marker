@@ -136,6 +136,7 @@ class GoogleGeminiService(BaseGeminiService):
     gemini_base_url: Annotated[str, "The Google base URL"] = None
 
     def get_google_client(self, timeout: int):
+        print("Initializing Google with:", self.gemini_api_key)
         return genai.Client(
             api_key=self.gemini_api_key,
             http_options={"timeout": timeout * 1000, "base_url": self.gemini_api_key},  # Convert to milliseconds
