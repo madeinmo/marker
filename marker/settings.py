@@ -24,6 +24,7 @@ class Settings(BaseSettings):
 
     # LLM
     GOOGLE_API_KEY: Optional[str] = ""
+    GOOGLE_BASE_URL: Optional[str] = ""
 
     # General models
     TORCH_DEVICE: Optional[str] = (
