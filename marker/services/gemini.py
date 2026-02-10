@@ -133,9 +133,10 @@ class BaseGeminiService(BaseService):
 
 class GoogleGeminiService(BaseGeminiService):
     gemini_api_key: Annotated[str, "The Google API key to use for the service."] = None
+    gemini_base_url: Annotated[str, "The Google base URL"] = None
 
     def get_google_client(self, timeout: int):
         return genai.Client(
             api_key=self.gemini_api_key,
-            http_options={"timeout": timeout * 1000},  # Convert to milliseconds
+            http_options={"timeout": timeout * 1000, "base_url": self.gemini_api_key},  # Convert to milliseconds
         )
